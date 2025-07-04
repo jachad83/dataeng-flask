@@ -1,6 +1,6 @@
 ## About The Project
 
-Python load pipeline of UK PV generation data extracted from the PV_Live API provided by the University of Sheffield Sheffield Solar project.
+Python load pipeline with GUI and visualisations of UK PV generation data extracted from the PV_Live API provided by the University of Sheffield Sheffield Solar project.
 
 PV_Live API - https://www.solar.sheffield.ac.uk/api/ - https://github.com/SheffieldSolar/PV_Live-API
 
@@ -17,7 +17,15 @@ TBC
 
 ### Prerequisites
 
-TBC
+* flask
+* psycopg2
+* requests
+* pandas
+* sqlalchemy
+* pymongo
+* datetime
+* multiprocessing
+* pprint
 
 ## Usage
 
@@ -25,8 +33,7 @@ TBC
 
 ## Roadmap
 
-- [x] GET endpoint: region list
-- [ ] GET endpoint: regions PV generation date bounded (June '25)
+- [ ] GUI and visualisations
 
 ## Contact
 

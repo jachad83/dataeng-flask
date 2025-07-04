@@ -108,6 +108,8 @@ class PvGenerationData:
         collection.drop()
         collection = db[self.mongo_collection]
         collection.insert_many(pv_data_list[0])
+        
+        return True # TODO: appropriate return i.e. True if no errors encountered, false gives error message
 
 
     def pv_no_sql_to_sql_db(self):
@@ -138,6 +140,8 @@ class PvGenerationData:
 
             except Exception as e:
                 print(f'Error creating table pes ID {pes_region} for date {self.start_date} to {self.end_date}', e)
+
+        return True # TODO: appropriate return i.e. True if no errors encountered, false gives error message
 
 
 if __name__ == "__main__":
