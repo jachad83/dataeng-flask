@@ -32,7 +32,7 @@ class PvGenerationData:
     def __init__(self, start_date: str = '2025-06-01', end_date: str = '2025-06-02'):
         self.start_date = start_date
         self.end_date = end_date
-        self.mongo_collection = f'pv_{start_date}_{end_date}'.replace("-", "_")
+        self.mongo_collection = f'pv_{start_date}_{end_date}'.replace("-", "_") # TODO: standardise use of - and _ for date parsing
         self.pes_region_id_list = self.get_pes_region_ids()
 
 
