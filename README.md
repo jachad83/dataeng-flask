@@ -34,6 +34,8 @@ TBC
 ## Roadmap
 
 - [ ] GUI and visualisations
+- [ ] Error handling
+- [ ] Unit tests
 
 ## Contact
 
