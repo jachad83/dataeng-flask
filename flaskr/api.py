@@ -28,16 +28,35 @@ def get_pes_region_list():
 def set_pv_data():
     start_date = request.args.get('start')
     end_date = request.args.get('end')
-    pv_gen_data = PvGenerationData(start_date, end_date)
 
-    response = make_response('{"error": "Failed to save data to database"}')
-    response.status_code = 500
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute(f'SELECT * FROM pv_{start_date}_{end_date};')
+    gen_data = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    response = make_response(gen_data) # TODO: proper success and error handling
+    response.status_code = 200
     response.mimetype = 'application/json'
 
-    if pv_gen_data.pv_data_to_no_sql_db(): # TODO: proper success and error handling
-        if pv_gen_data.pv_no_sql_to_sql_db():
-            response = make_response('{"success": "Success saving data to database"}')
-            response.status_code = 201
-            response.mimetype = 'application/json'
-
     return response
+
+# TODO: post method to create new data
+# @bp.route('/pvgen', methods=['POST'])
+# def set_pv_data():
+#     start_date = request.args.get('start')
+#     end_date = request.args.get('end')
+#     pv_gen_data = PvGenerationData(start_date.replace("_", "-"), end_date.replace("_", "-")) # TODO: standardise use of - and _ for date parsing
+
+#     response = make_response('{"error": "Failed to save data to database"}')
+#     response.status_code = 500
+#     response.mimetype = 'application/json'
+
+#     if pv_gen_data.pv_data_to_no_sql_db(): # TODO: proper success and error handling
+#         if pv_gen_data.pv_no_sql_to_sql_db():
+#             response = make_response('{"success": "Success saving data to database"}')
+#             response.status_code = 201
+#             response.mimetype = 'application/json'
+
+#     return response
