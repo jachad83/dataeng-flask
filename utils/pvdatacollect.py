@@ -144,7 +144,7 @@ class PvGenerationData:
 
         try:
             with engine.begin() as connection:
-                df.to_sql(name=f'pv_{self.start_date}_{self.end_date}', con=connection, if_exists='replace', index=False, dtype=dtype)
+                df.to_sql(name=f'pv_{self.start_date.replace("-", "_")}_{self.end_date.replace("-", "_")}', con=connection, if_exists='replace', index=False, dtype=dtype)
 
         except Exception as e:
             print(f'Error creating table for date {self.start_date} to {self.end_date}', e)
@@ -153,13 +153,13 @@ class PvGenerationData:
 
 
 if __name__ == "__main__":
-    # tester5 = PvGenerationData('2025-06-15', '2025-06-16')
-    # tester5.pv_data_to_no_sql_db()
-    # tester5.pv_no_sql_to_sql_db()
-    import sys
-    pv_gen_obj = PvGenerationData(str(sys.argv[1]), str(sys.argv[2]))
-    pv_gen_obj.pv_data_to_no_sql_db()
-    pv_gen_obj.pv_no_sql_to_sql_db()
+    tester5 = PvGenerationData('2025-06-15', '2025-06-16')
+    tester5.pv_data_to_no_sql_db()
+    tester5.pv_no_sql_to_sql_db()
+    # import sys
+    # pv_gen_obj = PvGenerationData(str(sys.argv[1]), str(sys.argv[2]))
+    # pv_gen_obj.pv_data_to_no_sql_db()
+    # pv_gen_obj.pv_no_sql_to_sql_db()
 
 
 # TODO: refactor all classes below; they will be helper Classes or functions for the main PvGenerationData class
