@@ -1,0 +1,12 @@
+<!doctype html>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<title>UK PV Generation Data</title>
+
+<section class="container">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+
+  {% block content %}{% endblock %}
+</section>
