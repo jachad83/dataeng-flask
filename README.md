@@ -9,7 +9,7 @@ Extract and transform pipeline project: [dataeng-pipeline](https://github.com/ja
 ### Built With
 
 * [Flask](https://flask.palletsprojects.com/en/stable/)
-* [Psycopg](https://www.psycopg.org/docs/)
+* [matplotlib](https://matplotlib.org/)
 
 ## Getting Started
 
@@ -17,7 +17,9 @@ TBC
 
 ### Prerequisites
 
+#### API
 * flask
+* matplotlib
 * psycopg2
 * requests
 * pandas
