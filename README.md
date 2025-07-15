@@ -20,10 +20,12 @@ TBC
 #### API
 * flask
 * matplotlib
-* psycopg2
+
+#### Pipeline
 * requests
 * pandas
 * sqlalchemy
+* psycopg2
 * pymongo
 * datetime
 * multiprocessing
