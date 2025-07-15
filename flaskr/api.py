@@ -17,7 +17,10 @@ def get_pes_region_list():
     cur.close()
     conn.close()
 
-    response = make_response(pes_regions) # TODO: proper success and error handling
+    response_data = {}
+    response_data['data'] = pes_regions
+
+    response = make_response(response_data) # TODO: proper success and error handling
     response.status_code = 200
     response.mimetype = 'application/json'
 
@@ -36,7 +39,10 @@ def set_pv_data():
     cur.close()
     conn.close()
 
-    response = make_response(gen_data) # TODO: proper success and error handling
+    response_data = {}
+    response_data['data'] = gen_data
+
+    response = make_response(response_data) # TODO: proper success and error handling
     response.status_code = 200
     response.mimetype = 'application/json'
 
